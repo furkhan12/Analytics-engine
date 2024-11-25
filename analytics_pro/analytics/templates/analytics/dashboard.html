@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Analytics Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        h1 {
+            font-size: 2.5em;
+            margin: 0.2em 0;
+        }
+        p {
+            font-size: 1.2em;
+            margin: 0.5em 0;
+        }
+        h2 {
+            margin-top: 1.5em;
+            font-size: 2em;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            background: #e4e4e4;
+            margin: 0.5em 0;
+            padding: 10px;
+            border-radius: 4px;
+        }
+        li:nth-child(odd) {
+            background: #d4d4d4;
+        }
+        @media (max-width: 600px) {
+            .container {
+                width: 95%;
+                padding: 10px;
+            }
+            h1 {
+                font-size: 2em;
+            }
+            h2 {
+                font-size: 1.5em;
+            }
+            p, li {
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+
+
+
+<body>
+    <header>
+        <h1>Analytics Dashboard</h1>
+    </header>
+    <div class="container">
+        <p>Total Visits: {{ user_visits }}</p>
+        <h2>Feature Usage</h2>
+        <ul>
+            {% for usage in feature_usages %}
+                <li>{{ usage.feature_name }}: {{ usage.count }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>
